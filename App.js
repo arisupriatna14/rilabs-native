@@ -1,49 +1,101 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
+import React, { Component } from 'react';
+import {
+  StyleSheet,
+  View,
+  TouchableOpacity,
+  Image,
+  Dimensions
+} from 'react-native';
+import {
+  createStackNavigator,
+  createAppContainer,
+  createSwitchNavigator,
+  createDrawerNavigator
+} from 'react-navigation';
+import Login from './app/modules/Login/Login.screen';
+import AuthLoading from './app/modules/AuthLoading/AuthLoading.screen';
+import Home from './app/modules/Home/Home.screen';
+import ProfileUser from './app/modules/ProfileUser/ProfileUser.screen';
+// import Header from './app/components/Header/Header.screen';
+import SignOut from './app/modules/SignOut/SignOut.screen';
+import DrawerNavigation from './app/modules/DrawerNavigation/DrawerNavigation.screen';
+import WebBrowser from './app/components/WebView/WebView.screen';
+import TravelHome from './app/modules/TravelHome/TravelHome.screen';
+import TravelDetail from './app/modules/TravelDetail/TravelDetail.screen';
 
-import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+const { width } = Dimensions.get('window');
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
+const OpenDrawer = props => (
+  <View style={{ margin: 16 }}>
+    <TouchableOpacity onPress={() => { props.navigate.toggleDrawer(); }}>
+      <Image
+        source={{ uri: 'https://image.flaticon.com/icons/png/512/56/56763.png' }}
+        style={{ width: 20, height: 20 }}
+      />
+    </TouchableOpacity>
+  </View>
+);
+
+const HomeStack = createStackNavigator({
+  Home: {
+    screen: Home,
+    navigationOptions: ({ navigation }) => ({
+      headerLeft: <OpenDrawer navigate={navigation} />
+    })
+  },
+  Travel: {
+    screen: TravelHome
+  },
+  TravelDetail: {
+    screen: TravelDetail
+  },
+  Profile: {
+    screen: ProfileUser
+  },
+  WebBrowser: {
+    screen: WebBrowser
+  },
+  SignOut: {
+    screen: SignOut
+  }
 });
 
-type Props = {};
-export default class App extends Component<Props> {
+const AuthNavigator = createStackNavigator({
+  SignIn: {
+    screen: Login
+  }
+}, {
+  headerMode: 'none'
+});
+
+const AppDrawerNavigation = createDrawerNavigator({
+  Home: {
+    screen: HomeStack
+  }
+}, {
+  contentComponent: props => (<DrawerNavigation {...props} />),
+  drawerWidth: width - 60
+});
+
+const AppContainer = createAppContainer(createSwitchNavigator({
+  AuthLoading,
+  App: AppDrawerNavigation,
+  Auth: AuthNavigator,
+}, {
+  initialRouteName: 'AuthLoading'
+}));
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
-      </View>
+      <AppContainer />
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
+export default App;
