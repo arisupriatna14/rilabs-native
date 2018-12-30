@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import Color from '../../utils/Color';
 
 const styles = StyleSheet.create({
   container: {
@@ -11,19 +12,20 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   },
   button: {
-    backgroundColor: '#005cb2',
-    height: 30,
+    backgroundColor: Color.BLUE,
+    height: 36,
     justifyContent: 'center',
-    borderRadius: 4,
+    borderRadius: 2,
     shadowOpacity: 0.5,
     shadowRadius: 1,
     shadowColor: 'grey',
-    marginTop: 16
+    margin: 16
   },
   textBtn: {
     textAlign: 'center',
-    color: '#FFF',
-    fontWeight: '600'
+    color: Color.WHITE,
+    fontWeight: '600',
+    fontSize: 14
   },
   viewImage: {
     justifyContent: 'center',

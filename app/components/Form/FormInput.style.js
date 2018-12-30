@@ -1,18 +1,19 @@
 import { StyleSheet } from 'react-native';
+import Color from '../../utils/Color';
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: 16
+    margin: 16
   },
   textTitle: {
-    marginBottom: 16,
+    // marginBottom: 16,
     fontSize: 16,
     fontWeight: 'normal',
-    color: '#000'
+    color: Color.BLACK
   },
   inputStyle: {
     borderBottomWidth: 1,
-    borderBottomColor: '#bcbcbc'
+    borderBottomColor: Color.GREY
   }
 });
 

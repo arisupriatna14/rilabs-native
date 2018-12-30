@@ -17,13 +17,23 @@ import octocat2 from '../../assets/images/octocat-2.png';
 import SearchBar from '../../components/SearchBar/SearchBar.screen';
 import CardItem from '../../components/CardItem/CardItem.screen';
 
-// const url = 'https://kanban-ari.firebaseapp.com/'
-const url = 'com.whatsapp.w4b';
+// Styles
+import styles from './Home.style';
+import Color from '../../utils/Color';
+
+const url = 'https://kanban-ari.firebaseapp.com/';
 
 
 class Home extends Component {
   static navigationOptions = {
-    title: 'Rilabs'
+    title: 'Rilabs',
+    headerStyle: {
+      backgroundColor: Color.BLUE
+    },
+    headerTitleStyle: {
+      color: Color.WHITE,
+      fontWeight: '500'
+    }
   }
 
   openWebview = () => {
@@ -43,102 +53,46 @@ class Home extends Component {
         <ScrollView showsVerticalScrollIndicator={false}>
           <SearchBar />
           <CardItem />
-          <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
-            <View style={{ width: 150, height: 150, margin: 16 }}>
+          <View style={styles.row}>
+            <View style={styles.sizeCard}>
               <Image
                 source={octocat}
-                style={{ width: 150, height: 150, borderRadius: 10 }}
+                style={styles.sizeImage}
               />
-              <Text
-                style={{
-                  color: '#000',
-                  textAlign: 'center',
-                  fontWeight: '600',
-                  marginTop: 6
-                }}
-              >
+              <Text style={styles.textStyle}>
                 Notes
               </Text>
             </View>
-            <View style={{ width: 150, height: 150, margin: 16 }}>
+            <View style={styles.sizeCard}>
               <Image
                 source={octocat2}
-                style={{ width: 150, height: 150, borderRadius: 10 }}
+                style={styles.sizeImage}
               />
-              <Text
-                style={{
-                  color: '#000',
-                  textAlign: 'center',
-                  fontWeight: '600',
-                  marginTop: 6
-                }}
-              >
+              <Text style={styles.textStyle}>
                 Github
               </Text>
             </View>
           </View>
-          <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
-            <View style={{ width: 150, height: 150, margin: 16 }}>
+          <View style={[styles.row, { marginBottom: 20 }]}>
+            <View style={styles.sizeCard}>
               <Image
                 source={octocat}
-                style={{ width: 150, height: 150, borderRadius: 10 }}
+                style={styles.sizeImage}
               />
-              <Text
-                style={{
-                  color: '#000',
-                  textAlign: 'center',
-                  fontWeight: '600',
-                  marginTop: 6
-                }}
-              >
+              <Text style={styles.textStyle}>
                 Movie
               </Text>
             </View>
-            <View
-              style={{
-                width: 150,
-                height: 150,
-                margin: 16
-              }}
-            >
-              <TouchableOpacity onPress={() => this.openWebview()}>
+            <View style={styles.sizeCard}>
+              <TouchableOpacity onPress={this.openWebview}>
                 <Image
                   source={octocat}
-                  style={{
-                    width: 150,
-                    height: 150,
-                    borderRadius: 10
-                  }}
+                  style={styles.sizeImage}
                 />
-                <Text
-                  style={{
-                    color: '#000',
-                    textAlign: 'center',
-                    fontWeight: '600',
-                    marginTop: 6
-                  }}
-                >
+                <Text style={styles.textStyle}>
                   Kanban
                 </Text>
               </TouchableOpacity>
-            </View>
-          </View>
-          <View style={{ flexDirection: 'row', justifyContent: 'center', marginBottom: 20 }}>
-            <View style={{ width: 150, height: 150, margin: 16 }}>
-              <Image
-                source={octocat}
-                style={{ width: 150, height: 150, borderRadius: 10 }}
-              />
-              <Text
-                style={{
-                  color: '#000',
-                  textAlign: 'center',
-                  fontWeight: '600',
-                  marginTop: 6
-                }}
-              >
-                E-Money
-              </Text>
             </View>
           </View>
         </ScrollView>

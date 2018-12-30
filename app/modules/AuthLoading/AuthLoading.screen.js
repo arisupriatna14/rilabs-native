@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 
 import logo from '../../assets/images/jetpacktocat.png';
+import styles from './AuthLoading.style';
 
 class AuthLoading extends Component {
   constructor(props) {
@@ -22,19 +23,12 @@ class AuthLoading extends Component {
 
   render() {
     return (
-      <View
-        style={{
-          flex: 1,
-          justifyContent: 'center',
-          alignItems: 'center',
-          backgroundColor: '#eee',
-        }}
-      >
+      <View style={styles.container}>
         <Image
           source={logo}
-          style={{ width: 200, height: 200 }}
+          style={styles.logoSize}
         />
-        <Text style={{ fontSize: 20, fontWeight: 'bold' }}>RILABS</Text>
+        <Text style={styles.textStyle}>RILABS</Text>
       </View>
     );
   }

@@ -1,9 +1,22 @@
 import { StyleSheet } from 'react-native';
+import Color from '../../utils/Color';
 
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    borderRadius: 5,
+    shadowColor: Color.BLACK,
+    shadowOffset: {
+      width: 0,
+      height: 4
+    },
+    shadowOpacity: 0.35,
+    shadowRadius: 3,
+    elevation: 4,
+    marginBottom: 16,
+    backgroundColor: Color.WHITE,
+    margin: 16
   },
   viewIconMarker: {
     marginLeft: 16,
@@ -12,7 +25,8 @@ const styles = StyleSheet.create({
   },
   iconMarker: {
     width: 25,
-    height: 35
+    height: 35,
+    marginTop: 10
   },
   viewTextInput: {
     marginLeft: 16,
@@ -35,7 +49,8 @@ const styles = StyleSheet.create({
   },
   iconSearch: {
     width: 25,
-    height: 25
+    height: 25,
+    marginTop: 10
   }
 });
 

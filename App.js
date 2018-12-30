@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {
-  StyleSheet,
   View,
   TouchableOpacity,
   Image,
@@ -23,13 +22,16 @@ import WebBrowser from './app/components/WebView/WebView.screen';
 import TravelHome from './app/modules/TravelHome/TravelHome.screen';
 import TravelDetail from './app/modules/TravelDetail/TravelDetail.screen';
 
+// Icons
+import iconMenu from './app/assets/images/ic_menu.png';
+
 const { width } = Dimensions.get('window');
 
 const OpenDrawer = props => (
   <View style={{ margin: 16 }}>
     <TouchableOpacity onPress={() => { props.navigate.toggleDrawer(); }}>
       <Image
-        source={{ uri: 'https://image.flaticon.com/icons/png/512/56/56763.png' }}
+        source={iconMenu}
         style={{ width: 20, height: 20 }}
       />
     </TouchableOpacity>

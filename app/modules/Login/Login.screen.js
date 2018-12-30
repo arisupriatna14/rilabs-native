@@ -4,7 +4,8 @@ import {
   Text,
   TouchableOpacity,
   Image,
-  AsyncStorage
+  AsyncStorage,
+  ScrollView
 } from 'react-native';
 
 // Logo
@@ -24,30 +25,29 @@ class Login extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.viewImage}>
-          <Image
-            source={logo}
-            style={styles.imageSize}
+        <ScrollView showsVerticalScrollIndicator={false}>
+          <View style={styles.viewImage}>
+            <Image
+              source={logo}
+              style={styles.imageSize}
+            />
+            <Text style={styles.text}>Rilabs</Text>
+          </View>
+          <FormInput
+            placeholder="Enter your email"
           />
-          <Text style={styles.text}>Rilabs</Text>
-        </View>
-        <FormInput
-          title="Email"
-          placeholder="Enter your email"
-          secureTextEntry={false}
-        />
-        <FormInput
-          title="Password"
-          placeholder="Enter your password"
-          secureTextEntry
-        />
-        <TouchableOpacity
-          activeOpacity={0.8}
-          style={styles.button}
-          onPress={this.signAsync}
-        >
-          <Text style={styles.textBtn}>Login</Text>
-        </TouchableOpacity>
+          <FormInput
+            placeholder="Enter your password"
+            secureTextEntry
+          />
+          <TouchableOpacity
+            activeOpacity={0.8}
+            style={styles.button}
+            onPress={this.signAsync}
+          >
+            <Text style={styles.textBtn}>Login</Text>
+          </TouchableOpacity>
+        </ScrollView>
       </View>
     );
   }
