@@ -17,7 +17,7 @@ const listDrawer = [
   },
   {
     title: 'Logout',
-    navigation: 'Signout'
+    navigation: 'SignOut'
   },
   {
     title: 'Home',
@@ -37,7 +37,7 @@ const listDrawer = [
   },
   {
     title: 'Logout',
-    navigation: 'Signout'
+    navigation: 'SignOut'
   },
   {
     title: 'Home',
@@ -57,7 +57,7 @@ const listDrawer = [
   },
   {
     title: 'Logout',
-    navigation: 'Signout'
+    navigation: 'SignOut'
   },
   {
     title: 'Home',
@@ -77,7 +77,7 @@ const listDrawer = [
   },
   {
     title: 'Logout',
-    navigation: 'Signout'
+    navigation: 'SignOut'
   },
   {
     title: 'Home',
@@ -97,7 +97,7 @@ const listDrawer = [
   },
   {
     title: 'Logout',
-    navigation: 'Signout'
+    navigation: 'SignOut'
   },
   {
     title: 'Home',
@@ -117,7 +117,7 @@ const listDrawer = [
   },
   {
     title: 'Logout',
-    navigation: 'Signout'
+    navigation: 'SignOut'
   }
 ];
 
